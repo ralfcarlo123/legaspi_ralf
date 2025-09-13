@@ -43,4 +43,10 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 */
 
-$router->get('/', 'Welcome::index');
+//$router->get('/', 'Welcome::index');
+
+$router->get('/', 'PeopleController::index');
+$router->get('people', 'PeopleController::index');
+$router->match('people/create', 'PeopleController::create', ['GET','POST']);
+$router->match('people/edit/{id}', 'PeopleController::edit', ['GET','POST']);
+$router->get('people/delete/{id}', 'PeopleController::delete');
